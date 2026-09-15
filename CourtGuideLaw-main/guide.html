@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>CourtGuide - Guide</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+    /* =========================
+       GUIDE PAGE
+    ========================= */
+
+    .guide-page {
+        background: #f5f3ee;
+    }
+
+    .guide-header {
+        background: linear-gradient(
+            135deg,
+            #071722,
+            #0b1d2a,
+            #19384b
+        );
+
+        color: white;
+        padding: 70px 0;
+    }
+
+    .guide-header h1 {
+        margin: 0 0 15px;
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-size: 55px;
+    }
+
+    .guide-header h1 span {
+        color: #d7b568;
+    }
+
+    .guide-header p {
+        max-width: 700px;
+
+        color: #c5d0d6;
+
+        line-height: 1.7;
+
+        margin: 0;
+    }
+
+
+    /* =========================
+       GUIDE CONTENT
+    ========================= */
+
+    .guide-content {
+        padding: 60px 0 80px;
+    }
+
+
+    /* =========================
+       GUIDE TABS
+    ========================= */
+
+    .guide-tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        gap: 12px;
+
+        margin-bottom: 30px;
+    }
+
+    .guide-tab {
+        padding: 13px 20px;
+
+        border: 2px solid #ddd8ce;
+        border-radius: 12px;
+
+        background: white;
+        color: #4e5d67;
+
+        font-size: 14px;
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.25s ease;
+    }
+
+    .guide-tab:hover {
+        background: #faf5e9;
+        border-color: #c8a45d;
+        color: #8b682c;
+
+        transform: translateY(-2px);
+    }
+
+    .guide-tab.active {
+        background: linear-gradient(
+            135deg,
+            #19384b,
+            #0b1d2a
+        );
+
+        color: white;
+        border-color: #0b1d2a;
+
+        box-shadow:
+            0 8px 20px rgba(11, 29, 42, 0.2);
+    }
+
+
+    /* =========================
+       GUIDE SECTIONS
+    ========================= */
+
+    .guide-section {
+        display: none;
+
+        max-width: 1100px;
+
+        margin: 0 auto;
+
+        padding: 35px;
+
+        background: white;
+
+        border: 1px solid #dedbd3;
+        border-radius: 18px;
+
+        box-shadow:
+            0 8px 30px rgba(0, 0, 0, 0.06);
+
+        animation: guideFade 0.3s ease;
+    }
+
+    .guide-section.active {
+        display: block;
+    }
+
+    @keyframes guideFade {
+
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+    .guide-section h2 {
+        margin: 0 0 10px;
+
+        color: #0b1d2a;
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-size: 34px;
+    }
+
+    .guide-intro {
+        color: #687681;
+
+        line-height: 1.7;
+
+        margin-bottom: 30px;
+    }
+
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .guide-cards {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 20px;
+    }
+
+    .guide-card {
+        display: block;
+
+        width: 100%;
+
+        padding: 25px;
+
+        box-sizing: border-box;
+
+        position: relative;
+
+        background: white;
+
+        border: 1px solid #e2ded5;
+        border-radius: 15px;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.05);
+
+        text-decoration: none;
+        color: inherit;
+
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    .guide-card:hover {
+        transform: translateY(-6px);
+
+        border-color: #c8a45d;
+
+        box-shadow:
+            0 14px 30px rgba(11, 29, 42, 0.12);
+    }
+
+
+    /* =========================
+       HOVER MORE INFORMATION
+    ========================= */
+
+    .more-info {
+        max-height: 0;
+
+        opacity: 0;
+
+        overflow: hidden;
+
+        margin-top: 0;
+
+        color: #52616b;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        transition:
+            max-height 0.35s ease,
+            opacity 0.3s ease,
+            margin-top 0.3s ease;
+    }
+
+    .guide-card:hover .more-info {
+        max-height: 180px;
+
+        opacity: 1;
+
+        margin-top: 15px;
+    }
+
+
+    /* =========================
+       ICONS
+    ========================= */
+
+    .guide-icon {
+        width: 52px;
+        height: 52px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 15px;
+
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f5e8c8,
+                #e7cf98
+            );
+
+        color: #0b1d2a;
+
+        font-size: 23px;
+
+        box-shadow:
+            0 5px 12px rgba(11, 29, 42, 0.10);
+
+        animation:
+            iconFloat 3s ease-in-out infinite;
+
+        transition:
+            transform 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    @keyframes iconFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+    }
+
+    .guide-card:hover .guide-icon {
+        animation: none;
+
+        transform:
+            translateY(-7px)
+            rotate(-6deg)
+            scale(1.08);
+
+        background:
+            linear-gradient(
+                135deg,
+                #d7b568,
+                #f0d99d
+            );
+
+        box-shadow:
+            0 12px 24px rgba(11, 29, 42, 0.20);
+    }
+
+
+    /* =========================
+       CARD TEXT
+    ========================= */
+
+    .guide-card h3 {
+        margin: 0 0 10px;
+
+        color: #0b1d2a;
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-size: 20px;
+    }
+
+    .guide-card p {
+        margin: 0;
+
+        color: #687681;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .card-action {
+        display: block;
+
+        margin-top: 15px;
+
+        color: #9a7735;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        transition: 0.25s ease;
+    }
+
+    .guide-card:hover .card-action {
+        color: #0b1d2a;
+
+        transform: translateX(5px);
+    }
+
+
+    /* =========================
+       SPECIAL CARDS
+    ========================= */
+
+    .guide-card.warning {
+        background: #fff8e8;
+
+        border-color: #ead8aa;
+    }
+
+    .guide-card.success {
+        background: #f0faf5;
+
+        border-color: #c9e4d5;
+    }
+
+
+    /* =========================
+       COURT PROCESS
+    ========================= */
+
+    .process-note {
+        margin-top: 25px;
+
+        padding: 25px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #071722,
+                #19384b
+            );
+
+        color: white;
+
+        border-radius: 15px;
+    }
+
+    .process-note h3 {
+        margin: 0 0 8px;
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+    }
+
+    .process-note p {
+        margin: 0;
+
+        color: #c5d0d6;
+
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq-list {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .faq-item {
+        overflow: hidden;
+
+        border: 1px solid #dedbd3;
+
+        border-radius: 13px;
+
+        background: white;
+
+        transition: 0.2s ease;
+    }
+
+    .faq-item:hover {
+        border-color: #c8a45d;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .faq-question {
+        width: 100%;
+
+        min-height: 65px;
+
+        padding: 17px 20px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        border: none;
+
+        background: white;
+
+        color: #0b1d2a;
+
+        text-align: left;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .faq-plus {
+        flex-shrink: 0;
+
+        width: 34px;
+        height: 34px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: #f1e8d5;
+
+        color: #8b682c;
+
+        font-size: 21px;
+
+        transition: 0.25s ease;
+    }
+
+    .faq-question.open .faq-plus {
+        transform: rotate(45deg);
+
+        background: #d7b568;
+
+        color: #0b1d2a;
+    }
+
+    .faq-answer {
+        max-height: 0;
+
+        overflow: hidden;
+
+        background: #faf9f5;
+
+        transition:
+            max-height 0.3s ease;
+    }
+
+    .faq-answer p {
+        margin: 0;
+
+        padding: 0 20px 20px;
+
+        color: #687681;
+
+        line-height: 1.7;
+
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+        .guide-cards {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+    }
+
+    @media (max-width: 600px) {
+
+        .guide-header h1 {
+            font-size: 42px;
+        }
+
+        .guide-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .guide-section {
+            padding: 22px;
+        }
+
+        .guide-tab {
+            width: 100%;
+        }
+
+        .more-info {
+            max-height: none;
+
+            opacity: 1;
+
+            margin-top: 15px;
+        }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .guide-icon {
+            animation: none;
+        }
+
+        .guide-card:hover .guide-icon {
+            transform: none;
+        }
+
+        .more-info {
+            transition: none;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body class="guide-page">
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+
+<div class="container nav-container">
+
+    <a href="index.html" class="logo">
+        ⚖ CourtGuide
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="guide.html" class="active">
+            Guide
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="Help.html">
+            Help
+        </a>
+
+        <a href="contact.html">
+                Contact
+            </a>
+
+    </nav>
+
+    <a href="guide.html" class="nav-button">
+        Start Guide
+    </a>
+
+</div>
+
+
+</header>
+
+<!-- =========================
+     GUIDE HEADER
+========================= -->
+
+<section class="guide-header">
+
+
+<div class="container">
+
+    <h1>
+        Court <span>Guide</span>
+    </h1>
+
+    <p>
+        Learn about the different people involved in a
+        court case, the general court process, and answers
+        to common questions.
+    </p>
+
+</div>
+
+
+</section>
+
+<!-- =========================
+     MAIN GUIDE
+========================= -->
+
+<main class="guide-content">
+
+<div class="container">
+
+
+<!-- =========================
+     TABS
+========================= -->
+
+<div class="guide-tabs">
+
+    <button
+        class="guide-tab"
+        data-section="roles"
+        onclick="openGuide('roles', this)">
+        Who Is Who
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="defendant"
+        onclick="openGuide('defendant', this)">
+        Defendant
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="plaintiff"
+        onclick="openGuide('plaintiff', this)">
+        Plaintiff
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="witness"
+        onclick="openGuide('witness', this)">
+        Witness
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="judge"
+        onclick="openGuide('judge', this)">
+        Judge
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="lawyer"
+        onclick="openGuide('lawyer', this)">
+        Lawyer
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="court"
+        onclick="openGuide('court', this)">
+        Court
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="process"
+        onclick="openGuide('process', this)">
+        Court Process
+    </button>
+
+    <button
+        class="guide-tab"
+        data-section="faq"
+        onclick="openGuide('faq', this)">
+        FAQ
+    </button>
+
+</div>
+
+
+<!-- ==================================================
+     WHO IS WHO
+================================================== -->
+
+<section id="roles" class="guide-section">
+
+    <h2>
+        Who Is Who?
+    </h2>
+
+    <p class="guide-intro">
+        Court cases can involve many different people.
+        Hover over a role to learn more about what they
+        generally do in a court case.
+    </p>
+
+
+    <div class="guide-cards">
+
+
+        <a
+            href="guide.html?section=defendant"
+            class="guide-card">
+
+            <div class="guide-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Defendant
+            </h3>
+
+            <p>
+                The person or party responding to a
+                legal claim or accusation.
+            </p>
+
+            <div class="more-info">
+                A defendant may need to respond to court
+                documents, attend hearings, present evidence,
+                and follow important court deadlines.
+            </div>
+
+            <span class="card-action">
+                Learn about defendants →
+            </span>
+
+        </a>
+
+
+        <a
+            href="guide.html?section=plaintiff"
+            class="guide-card">
+
+            <div class="guide-icon">
+                📄
+            </div>
+
+            <h3>
+                Plaintiff
+            </h3>
+
+            <p>
+                The person or party who generally brings
+                a civil claim against another party.
+            </p>
+
+            <div class="more-info">
+                A plaintiff generally starts a civil case
+                by making a legal claim and may need to
+                provide evidence supporting that claim.
+            </div>
+
+            <span class="card-action">
+                Learn about plaintiffs →
+            </span>
+
+        </a>
+
+
+        <a
+            href="guide.html?section=witness"
+            class="guide-card">
+
+            <div class="guide-icon">
+                👁️
+            </div>
+
+            <h3>
+                Witness
+            </h3>
+
+            <p>
+                A person who may provide information
+                about events or facts relevant to a case.
+            </p>
+
+            <div class="more-info">
+                A witness may be asked questions about
+                what they personally saw, heard, experienced,
+                or otherwise know about the case.
+            </div>
+
+            <span class="card-action">
+                Learn about witnesses →
+            </span>
+
+        </a>
+
+
+        <a
+            href="guide.html?section=judge"
+            class="guide-card">
+
+            <div class="guide-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Judge
+            </h3>
+
+            <p>
+                A judicial officer who handles matters
+                brought before the court.
+            </p>
+
+            <div class="more-info">
+                A judge may manage court proceedings,
+                consider evidence and arguments, interpret
+                applicable law, and issue decisions or orders.
+            </div>
+
+            <span class="card-action">
+                Learn about judges →
+            </span>
+
+        </a>
+
+
+        <a
+            href="guide.html?section=lawyer"
+            class="guide-card">
+
+            <div class="guide-icon">
+                👨‍⚖️
+            </div>
+
+            <h3>
+                Lawyer
+            </h3>
+
+            <p>
+                A legal professional who may represent
+                or advise someone involved in a case.
+            </p>
+
+            <div class="more-info">
+                A lawyer may explain legal options, prepare
+                documents, communicate with other parties,
+                and represent a client during proceedings.
+            </div>
+
+            <span class="card-action">
+                Learn about lawyers →
+            </span>
+
+        </a>
+
+
+        <a
+            href="guide.html?section=court"
+            class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Court
+            </h3>
+
+            <p>
+                The institution where legal proceedings
+                are heard and decided.
+            </p>
+
+            <div class="more-info">
+                Courts provide the formal setting for legal
+                proceedings, manage cases and hearings, and
+                may issue judgments, orders, or other decisions.
+            </div>
+
+            <span class="card-action">
+                Learn about the court →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DEFENDANT
+================================================== -->
+
+<section id="defendant" class="guide-section">
+
+    <h2>
+        Defendant Guide
+    </h2>
+
+    <p class="guide-intro">
+        A defendant is generally the person or party
+        responding to a legal claim or accusation.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📄
+            </div>
+
+            <h3>
+                Read Your Documents
+            </h3>
+
+            <p>
+                Carefully review summonses, complaints,
+                charges, notices, and other court documents.
+            </p>
+
+            <div class="more-info">
+                Review your court papers carefully. They can
+                explain what the case is about, what you may
+                need to do, and when action may be required.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📅
+            </div>
+
+            <h3>
+                Know Your Deadlines
+            </h3>
+
+            <p>
+                Check your official documents for response
+                deadlines, hearings, and important dates.
+            </p>
+
+            <div class="more-info">
+                Write important dates on a calendar and check
+                your official documents regularly so that you
+                do not overlook a required response or hearing.
+             </div>
+            <div class="organize-button-container">
+    <a
+        href="https://mixboyzzz.github.io/GPA-saviour/gpa%20saviour/home.html"
+        class="organize-button"
+        target="_blank"
+        rel="noopener noreferrer">
+        Organize Here →
+    </a>
+</div>
+</div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📁
+            </div>
+
+            <h3>
+                Organize Evidence
+            </h3>
+
+            <p>
+                Keep relevant documents, photographs,
+                messages, and records organized.
+            </p>
+
+            <div class="more-info">
+                Keep important evidence together and label
+                files clearly. Organized records can make it
+                easier to locate information when needed.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Attend Court
+            </h3>
+
+            <p>
+                Follow the instructions in your official
+                court documents and arrive prepared.
+            </p>
+
+            <div class="more-info">
+                Check the correct date, time, location, and
+                any instructions provided by the court. Allow
+                extra time for travel and court procedures.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card warning">
+
+            <div class="guide-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Don't Ignore Notices
+            </h3>
+
+            <p>
+                Court notices may contain important
+                deadlines or instructions.
+            </p>
+
+            <div class="more-info">
+                Read notices as soon as you receive them.
+                If you are unsure what a notice means,
+                consider contacting the court or a qualified
+                legal professional for appropriate guidance.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card success">
+
+            <div class="guide-icon">
+                ✓
+            </div>
+
+            <h3>
+                Stay Organized
+            </h3>
+
+            <p>
+                Keep copies of documents, evidence,
+                correspondence, and court orders together.
+            </p>
+
+            <div class="more-info">
+                Create a folder for your case and keep
+                important paperwork in date order. Keep
+                copies of anything you submit or receive.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     PLAINTIFF
+================================================== -->
+
+<section id="plaintiff" class="guide-section">
+
+    <h2>
+        Plaintiff Guide
+    </h2>
+
+    <p class="guide-intro">
+        A plaintiff is generally the person or party
+        who brings a civil claim against another party.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📝
+            </div>
+
+            <h3>
+                Understand Your Claim
+            </h3>
+
+            <p>
+                Clearly identify what happened, who is
+                involved, and what outcome you are seeking.
+            </p>
+
+            <div class="more-info">
+                Identify the important facts, the parties
+                involved, and the result or remedy you are
+                asking the court to consider.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📁
+            </div>
+
+            <h3>
+                Gather Evidence
+            </h3>
+
+            <p>
+                Organize documents, photographs, messages,
+                records, and other relevant information.
+            </p>
+
+            <div class="more-info">
+                Keep evidence that may support your claim
+                organized and make copies of important
+                documents for your records.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📋
+            </div>
+
+            <h3>
+                Complete Forms
+            </h3>
+
+            <p>
+                Complete required court forms accurately
+                and follow applicable filing procedures.
+            </p>
+
+            <div class="more-info">
+                Check forms carefully before filing and make
+                sure you follow the court's instructions for
+                submitting documents and paying any required fees.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📅
+            </div>
+
+            <h3>
+                Track Your Dates
+            </h3>
+
+            <p>
+                Keep track of filing deadlines, hearings,
+                meetings, and other important dates.
+            </p>
+
+            <div class="more-info">
+                Use a calendar or reminder system to keep
+                track of every deadline and scheduled court
+                appearance connected to your case.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Prepare for Court
+            </h3>
+
+            <p>
+                Review your documents beforehand and
+                bring anything the court requires.
+            </p>
+
+            <div class="more-info">
+                Review your important facts and documents
+                before attending. Follow any instructions
+                provided by the court about what to bring.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card success">
+
+            <div class="guide-icon">
+                ✓
+            </div>
+
+            <h3>
+                Keep Records
+            </h3>
+
+            <p>
+                Keep copies of filings, correspondence,
+                evidence, and court orders.
+            </p>
+
+            <div class="more-info">
+                Keeping a complete record can help you
+                understand the history of your case and
+                locate documents when they are needed.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     WITNESS
+================================================== -->
+
+<section id="witness" class="guide-section">
+
+    <h2>
+        Witness Guide
+    </h2>
+
+    <p class="guide-intro">
+        A witness may provide information about events
+        or facts relevant to a case.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                👁️
+            </div>
+
+            <h3>
+                Know What You Know
+            </h3>
+
+            <p>
+                Focus on what you personally saw, heard,
+                experienced, or otherwise know.
+            </p>
+
+            <div class="more-info">
+                Separate what you personally know from
+                assumptions or information you heard from
+                someone else. Answer based on your own knowledge.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🗣️
+            </div>
+
+            <h3>
+                Tell the Truth
+            </h3>
+
+            <p>
+                Give honest answers and do not intentionally
+                change or exaggerate information.
+            </p>
+
+            <div class="more-info">
+                Give accurate answers to questions. Do not
+                intentionally exaggerate, hide, or change
+                information when providing testimony.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                ❓
+            </div>
+
+            <h3>
+                Listen Carefully
+            </h3>
+
+            <p>
+                Listen to each question carefully before
+                answering.
+            </p>
+
+            <div class="more-info">
+                Take a moment to understand the question.
+                If you do not understand what is being asked,
+                you may need to ask for clarification.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🤔
+            </div>
+
+            <h3>
+                Don't Guess
+            </h3>
+
+            <p>
+                If you do not remember or do not know,
+                say so rather than guessing.
+            </p>
+
+            <div class="more-info">
+                It is generally better to explain that you
+                do not remember or do not know than to provide
+                an uncertain answer as if it were a fact.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Follow Instructions
+            </h3>
+
+            <p>
+                Follow instructions provided by the
+                court regarding your appearance.
+            </p>
+
+            <div class="more-info">
+                Pay attention to instructions about when and
+                where you need to appear and any procedures
+                you must follow as a witness.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card warning">
+
+            <div class="guide-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Handle Information Carefully
+            </h3>
+
+            <p>
+                Follow any applicable restrictions about
+                discussing testimony or case information.
+            </p>
+
+            <div class="more-info">
+                Some cases may involve specific instructions
+                about discussing testimony or case information.
+                Follow instructions that apply to your situation.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     JUDGE
+================================================== -->
+
+<section id="judge" class="guide-section">
+
+    <h2>
+        Judge Guide
+    </h2>
+
+    <p class="guide-intro">
+        A judge is a judicial officer responsible for
+        handling matters brought before the court and
+        applying the law and court procedures.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Hear the Case
+            </h3>
+
+            <p>
+                A judge may listen to arguments, testimony,
+                and evidence presented during proceedings.
+            </p>
+
+            <div class="more-info">
+                During proceedings, the judge may listen
+                to the parties, consider evidence, and
+                address questions that arise during the case.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📜
+            </div>
+
+            <h3>
+                Apply the Law
+            </h3>
+
+            <p>
+                Judges apply relevant laws and procedural
+                rules to matters before the court.
+            </p>
+
+            <div class="more-info">
+                The judge considers the laws and court
+                procedures that apply to the particular
+                matter before the court.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📝
+            </div>
+
+            <h3>
+                Make Decisions
+            </h3>
+
+            <p>
+                A judge may issue orders, rulings, judgments,
+                or other decisions depending on the case.
+            </p>
+
+            <div class="more-info">
+                Decisions can address procedural questions,
+                evidence, motions, or the final outcome,
+                depending on the type and stage of the case.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Manage Proceedings
+            </h3>
+
+            <p>
+                Judges may manage hearings and help ensure
+                proceedings follow applicable rules.
+            </p>
+
+            <div class="more-info">
+                A judge may control the order of proceedings,
+                address procedural issues, and help maintain
+                an orderly and fair courtroom process.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     LAWYER
+================================================== -->
+
+<section id="lawyer" class="guide-section">
+
+    <h2>
+        Lawyer Guide
+    </h2>
+
+    <p class="guide-intro">
+        A lawyer is a legal professional who may advise
+        or represent a person or organization in legal
+        matters.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🗣️
+            </div>
+
+            <h3>
+                Provide Legal Advice
+            </h3>
+
+            <p>
+                A lawyer may explain legal issues,
+                procedures, options, and considerations.
+            </p>
+
+            <div class="more-info">
+                A lawyer can help a client understand how
+                legal rules and procedures may apply and
+                discuss possible options.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📄
+            </div>
+
+            <h3>
+                Prepare Documents
+            </h3>
+
+            <p>
+                Lawyers may prepare or review legal
+                documents, filings, and other materials.
+            </p>
+
+            <div class="more-info">
+                Depending on the matter, a lawyer may draft,
+                review, organize, or submit documents required
+                during the legal process.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Represent Clients
+            </h3>
+
+            <p>
+                Depending on the matter, a lawyer may speak
+                on behalf of a client during proceedings.
+            </p>
+
+            <div class="more-info">
+                When authorized to represent a client, a
+                lawyer may communicate with other parties
+                and speak for the client during proceedings.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🤝
+            </div>
+
+            <h3>
+                Explain Options
+            </h3>
+
+            <p>
+                A lawyer can help a client understand
+                available legal options and considerations.
+            </p>
+
+            <div class="more-info">
+                A lawyer may explain possible approaches,
+                potential consequences, and considerations
+                that could affect a client's decision.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     COURT
+================================================== -->
+
+<section id="court" class="guide-section">
+
+    <h2>
+        Court Guide
+    </h2>
+
+    <p class="guide-intro">
+        A court is an institution where legal proceedings
+        are heard and decisions are made according to
+        applicable laws and procedures.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Hear Cases
+            </h3>
+
+            <p>
+                Courts provide a formal setting where legal
+                disputes and proceedings can be heard.
+            </p>
+
+            <div class="more-info">
+                Courts provide a structured environment
+                where parties can present matters for
+                consideration under applicable procedures.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📋
+            </div>
+
+            <h3>
+                Manage Proceedings
+            </h3>
+
+            <p>
+                Courts manage filings, hearings, documents,
+                schedules, and other parts of proceedings.
+            </p>
+
+            <div class="more-info">
+                Court administration can involve processing
+                filings, scheduling hearings, maintaining
+                records, and managing case information.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Make Decisions
+            </h3>
+
+            <p>
+                Courts may issue judgments, orders, or other
+                decisions depending on the type of case.
+            </p>
+
+            <div class="more-info">
+                A court's decision may resolve a dispute,
+                determine a legal issue, or establish what
+                the parties must do next.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📜
+            </div>
+
+            <h3>
+                Follow Court Rules
+            </h3>
+
+            <p>
+                Court proceedings are governed by applicable
+                laws, rules, and procedures.
+            </p>
+
+            <div class="more-info">
+                The specific rules depend on the jurisdiction
+                and type of case. Official court information
+                should be checked for applicable requirements.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     COURT PROCESS
+================================================== -->
+
+<section id="process" class="guide-section">
+
+    <h2>
+        Court Process
+    </h2>
+
+    <p class="guide-intro">
+        This is a simplified overview of steps that
+        may occur in a court case. Actual procedures
+        vary depending on the type of case and location.
+    </p>
+
+    <div class="guide-cards">
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📄
+            </div>
+
+            <h3>
+                1. Filing
+            </h3>
+
+            <p>
+                A case generally begins when appropriate
+                documents are filed with the court.
+            </p>
+
+            <div class="more-info">
+                The person or party starting the case generally
+                submits required documents to the appropriate
+                court according to applicable filing rules.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📬
+            </div>
+
+            <h3>
+                2. Notice
+            </h3>
+
+            <p>
+                The other party may receive formal notice
+                of the case or claim.
+            </p>
+
+            <div class="more-info">
+                Formal notice can inform another party that
+                a case has been started and may explain what
+                response or action is required.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                📝
+            </div>
+
+            <h3>
+                3. Response
+            </h3>
+
+            <p>
+                Depending on the case, the responding
+                party may have an opportunity to answer.
+            </p>
+
+            <div class="more-info">
+                The responding party may have a specific
+                period in which to submit an answer or
+                another response, depending on local rules.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🔎
+            </div>
+
+            <h3>
+                4. Preparation
+            </h3>
+
+            <p>
+                Parties may gather documents, identify
+                evidence, and prepare their arguments.
+            </p>
+
+            <div class="more-info">
+                Preparation may include organizing records,
+                identifying witnesses, reviewing evidence,
+                and preparing arguments or legal documents.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                🏛️
+            </div>
+
+            <h3>
+                5. Hearing or Trial
+            </h3>
+
+            <p>
+                The court may hear arguments, testimony,
+                and evidence according to applicable rules.
+            </p>
+
+            <div class="more-info">
+                The format and length of a hearing or trial
+                can vary significantly. The court determines
+                how the proceeding is conducted under applicable rules.
+            </div>
+
+        </div>
+
+
+        <div class="guide-card">
+
+            <div class="guide-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                6. Decision
+            </h3>
+
+            <p>
+                The court may issue a judgment, order,
+                or another decision.
+            </p>
+
+            <div class="more-info">
+                The decision may resolve some or all issues
+                in the case. Depending on the jurisdiction,
+                further review or appeal may sometimes be available.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="process-note">
+
+        <h3>
+            Important!
+        </h3>
+
+        <p>
+            Court procedures can differ significantly
+            depending on the jurisdiction and type of case.
+            Always check official court information for
+            the rules that apply to your situation.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FAQ
+================================================== -->
+
+<section id="faq" class="guide-section">
+
+    <h2>
+        Frequently Asked Questions
+    </h2>
+
+    <p class="guide-intro">
+        Click a question to reveal its answer.
+    </p>
+
+
+    <div class="faq-list">
+
+
+        <div class="faq-item">
+
+            <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)">
+
+                <span>
+                    Do I need a lawyer?
+                </span>
+
+                <span class="faq-plus">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    It depends on your situation, the
+                    type of case, and the rules that
+                    apply where your case is being heard.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)">
+
+                <span>
+                    What should I bring to court?
+                </span>
+
+                <span class="faq-plus">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Bring documents, identification,
+                    or other materials that your court
+                    documents specifically require.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)">
+
+                <span>
+                    What happens if I miss my court date?
+                </span>
+
+                <span class="faq-plus">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Missing a court date can have serious
+                    consequences. Check your court documents
+                    and contact the appropriate court or a
+                    qualified legal professional as soon as
+                    possible.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)">
+
+                <span>
+                    Can I represent myself?
+                </span>
+
+                <span class="faq-plus">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    In many situations people can represent
+                    themselves, but the rules depend on the
+                    jurisdiction and type of case.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)">
+
+                <span>
+                    Where can I find my court date?
+                </span>
+
+                <span class="faq-plus">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Check your official court documents
+                    or the appropriate court's official
+                    information system.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button
+                type="button"
+                class="faq-question"
+                onclick="toggleFAQ(this)">
+
+                <span>
+                    Is CourtGuide legal advice?
+                </span>
+
+                <span class="faq-plus">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    No. CourtGuide provides general
+                    educational information and does not
+                    replace advice from a qualified legal
+                    professional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+
+<div class="footer-content">
+
+    <div>
+
+        <strong>
+            ⚖ CourtGuide
+        </strong>
+
+        <p>
+            Making court information easier to understand.
+        </p>
+
+    </div>
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="guide.html">
+            Guide
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+         <a href="Help.html">
+            Help
+         </a>
+                    
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+    © 2026 CourtGuide. For educational purposes only.
+</div>
+
+
+</div>
+
+</footer>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    /* =========================
+       OPEN GUIDE SECTION
+    ========================= */
+
+    function openGuide(sectionId, button) {
+
+        const sections =
+            document.querySelectorAll(".guide-section");
+
+        sections.forEach(function(section) {
+
+            section.classList.remove("active");
+
+        });
+
+
+        const tabs =
+            document.querySelectorAll(".guide-tab");
+
+        tabs.forEach(function(tab) {
+
+            tab.classList.remove("active");
+
+        });
+
+
+        const selected =
+            document.getElementById(sectionId);
+
+        if (selected) {
+
+            selected.classList.add("active");
+
+        }
+
+
+        if (button) {
+
+            button.classList.add("active");
+
+        }
+
+
+        window.history.replaceState(
+            {},
+            "",
+            "guide.html?section=" + sectionId
+        );
+
+    }
+
+
+    /* =========================
+       LOAD SECTION FROM URL
+    ========================= */
+
+    function loadGuideSection() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        let section =
+            params.get("section");
+
+
+        if (!section) {
+
+            section = "roles";
+
+        }
+
+
+        const selected =
+            document.getElementById(section);
+
+        if (!selected) {
+
+            section = "roles";
+
+        }
+
+
+        const button =
+            document.querySelector(
+                '.guide-tab[data-section="' +
+                section +
+                '"]'
+            );
+
+
+        openGuide(
+            section,
+            button
+        );
+
+    }
+
+
+    /* =========================
+       FAQ ACCORDION
+    ========================= */
+
+    function toggleFAQ(button) {
+
+        const answer =
+            button.nextElementSibling;
+
+        const isOpen =
+            button.classList.contains("open");
+
+
+        document
+            .querySelectorAll(".faq-question")
+            .forEach(function(item) {
+
+                item.classList.remove("open");
+
+            });
+
+
+        document
+            .querySelectorAll(".faq-answer")
+            .forEach(function(item) {
+
+                item.style.maxHeight = null;
+
+            });
+
+
+        if (!isOpen) {
+
+            button.classList.add("open");
+
+            answer.style.maxHeight =
+                answer.scrollHeight + "px";
+
+        }
+
+    }
+
+
+    /* =========================
+       START PAGE
+    ========================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            loadGuideSection();
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>

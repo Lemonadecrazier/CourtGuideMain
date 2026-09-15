@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CourtGuide - Home</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                ⚖ CourtGuide
+            </a>
+
+            <nav>
+                <a href="index.html" class="active">
+                    Home
+                </a>
+
+                <a href="guide.html">
+                    Guide
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="Help.html">
+                    Help
+                </a>
+
+                <a href="contact.html">
+                Contact
+            </a>
+
+                 
+            </nav>
+
+            <a href="guide.html" class="nav-button">
+                Start Guide
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <span class="eyebrow">
+                COURT INFORMATION MADE SIMPLE
+            </span>
+
+            <h1>
+                Understand the court.
+                <span>Know your role.</span>
+            </h1>
+
+            <p>
+                CourtGuide provides simple educational information
+                about common court roles, the court process, and
+                frequently asked questions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="guide.html?section=roles" class="primary-button">
+                    Who Is Who
+                </a>
+
+                <a href="guide.html?section=process" class="secondary-button">
+                    Court Process
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHO IS WHO
+    ========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    GET STARTED
+                </span>
+
+                <h2>
+                    Who are you in the case?
+                </h2>
+
+                <p>
+                    Select the role that best describes your
+                    situation to learn more.
+                </p>
+
+            </div>
+
+
+            <div class="info-card-grid">
+
+
+                <!-- DEFENDANT -->
+
+                <a
+                    href="guide.html?section=defendant"
+                    class="guide-card home-card">
+
+                    <div class="guide-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Defendant
+                    </h3>
+
+                    <p>
+                        Learn about responding to a legal claim
+                        or accusation and preparing for court.
+                    </p>
+
+                    <span class="card-link">
+                        Learn about defendants →
+                    </span>
+
+                </a>
+
+
+                <!-- PLAINTIFF -->
+
+                <a
+                    href="guide.html?section=plaintiff"
+                    class="guide-card home-card">
+
+                    <div class="guide-icon">
+                        📄
+                    </div>
+
+                    <h3>
+                        Plaintiff
+                    </h3>
+
+                    <p>
+                        Learn about bringing a civil claim and
+                        preparing your case.
+                    </p>
+
+                    <span class="card-link">
+                        Learn about plaintiffs →
+                    </span>
+
+                </a>
+
+
+                <!-- WITNESS -->
+
+                <a
+                    href="guide.html?section=witness"
+                    class="guide-card home-card">
+
+                    <div class="guide-icon">
+                        👁️
+                    </div>
+
+                    <h3>
+                        Witness
+                    </h3>
+
+                    <p>
+                        Learn about giving information or
+                        testimony about a case.
+                    </p>
+
+                    <span class="card-link">
+                        Learn about witnesses →
+                    </span>
+
+                </a>
+
+
+                <!-- COURT PROCESS -->
+
+                <a
+                    href="guide.html?section=process"
+                    class="guide-card home-card">
+
+                    <div class="guide-icon">
+                        ⚖️
+                    </div>
+
+                    <h3>
+                        Court Process
+                    </h3>
+
+                    <p>
+                        Get a simple overview of common stages
+                        in a court case.
+                    </p>
+
+                    <span class="card-link">
+                        View the process →
+                    </span>
+
+                </a>
+
+
+                <!-- FAQ -->
+
+                <a
+                    href="guide.html?section=faq"
+                    class="guide-card home-card">
+
+                    <div class="guide-icon">
+                        ❓
+                    </div>
+
+                    <h3>
+                        FAQ
+                    </h3>
+
+                    <p>
+                        Find answers to common questions people
+                        may have about going to court.
+                    </p>
+
+                    <span class="card-link">
+                        View FAQs →
+                    </span>
+
+                </a>
+
+
+                <!-- WHO IS WHO -->
+
+                <a
+                    href="guide.html?section=roles"
+                    class="guide-card">
+
+                    <div class="guide-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Who Is Who?
+                    </h3>
+
+                    <p>
+                        Not sure which role applies to you?
+                        Start here.
+                    </p>
+
+                    <span class="card-link">
+                        Choose a role →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <style>
+    .guide-icon {
+        width: 52px;
+        height: 52px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 15px;
+
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f5e8c8,
+                #e7cf98
+            );
+
+        color: #0b1d2a;
+
+        font-size: 23px;
+
+        box-shadow:
+            0 5px 12px rgba(11, 29, 42, 0.10);
+
+        animation:
+            iconFloat 3s ease-in-out infinite;
+
+        transition:
+            transform 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    @keyframes iconFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+    }
+
+</style>
+
+    <!-- =========================
+         QUICK HELP
+    ========================== -->
+
+    <section class="section alternate-section">
+
+        <div class="container">
+
+            <div class="two-column">
+
+                <div>
+
+                    <span class="eyebrow">
+                        QUICK HELP
+                    </span>
+
+                    <h2>
+                        Don't know where to start?
+                    </h2>
+
+                    <p>
+                        Start with Who Is Who to identify your
+                        role, or go directly to the Court Process
+                        if you want to understand what happens next.
+                    </p>
+
+                </div>
+
+
+                <div class="quick-links">
+
+                    <a
+                        href="guide.html?section=roles"
+                        class="quick-link">
+
+                        <span>👥</span>
+
+                        <div>
+                            <strong>
+                                Who Is Who
+                            </strong>
+
+                            <small>
+                                Find your role
+                            </small>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a
+                        href="guide.html?section=process"
+                        class="quick-link">
+
+                        <span>⚖️</span>
+
+                        <div>
+                            <strong>
+                                Court Process
+                            </strong>
+
+                            <small>
+                                Understand the steps
+                            </small>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+
+                    <a
+                        href="guide.html?section=faq"
+                        class="quick-link">
+
+                        <span>❓</span>
+
+                        <div>
+                            <strong>
+                                Frequently Asked Questions
+                            </strong>
+
+                            <small>
+                                Find quick answers
+                            </small>
+                        </div>
+
+                        <b>→</b>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DISCLAIMER
+    ========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="disclaimer-box">
+
+                <h3>
+                    Important Notice
+                </h3>
+
+                <p>
+                    CourtGuide provides general educational
+                    information and is not a substitute for legal
+                    advice from a qualified professional.
+                    Court procedures can vary depending on your
+                    location and type of case.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <strong>
+                        ⚖ CourtGuide
+                    </strong>
+
+                    <p>
+                        Making court information easier to understand.
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="guide.html">
+                        Guide
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                     <a href="Help.html">
+                    Help
+                    </a>
+                    
+                    <a href="contact.html">
+                    Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 CourtGuide. For educational purposes only.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>CourtGuide | Help</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+    /* =========================
+       HELP PAGE
+    ========================= */
+
+    .feature-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e2ded5;
+    border-radius: 17px;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.05);
+
+    transition: 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #c8a45d;
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.09);
+}
+
+    .help-page {
+        background: #f5f3ee;
+    }
+
+    .help-header {
+        background: linear-gradient(135deg, #071722, #0b1d2a, #19384b);
+        color: white;
+        padding: 70px 0;
+    }
+
+    .help-header h1 {
+        margin: 0 0 15px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 55px;
+    }
+
+    .help-header h1 span {
+        color: #d7b568;
+    }
+
+    .help-header p {
+        max-width: 700px;
+        margin: 0;
+        color: #c5d0d6;
+        line-height: 1.7;
+    }
+
+    .help-content {
+        padding: 65px 0 80px;
+    }
+
+    .help-heading {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 40px;
+    }
+
+    .eyebrow {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: #a98235;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .help-heading h2 {
+        margin: 0 0 12px;
+        color: #071722;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 36px;
+    }
+
+    .help-heading p {
+        color: #687681;
+        line-height: 1.7;
+    }
+
+    /* =========================
+       HELP CARDS
+    ========================= */
+
+    .help-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .help-card {
+        position: relative;
+        padding: 28px;
+        background: white;
+        border: 1px solid #dedbd3;
+        border-radius: 17px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 7px 22px rgba(7, 23, 34, 0.06);
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .help-card:hover {
+        transform: translateY(-7px);
+        border-color: #d7b568;
+        box-shadow: 0 16px 35px rgba(7, 23, 34, 0.13);
+    }
+
+.help-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 13px;
+
+    background: linear-gradient(135deg, #f5e8c8, #e7cf98);
+
+    font-size: 23px;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease;
+}
+
+.help-card:hover .help-icon {
+    transform: translateY(-7px) scale(1.08) rotate(-6deg);
+
+    background: linear-gradient(
+                135deg,
+                #d7b568,
+                #f0d99d
+            );
+
+    box-shadow:
+        0 8px 16px rgba(11, 29, 42, 0.12);
+}
+    .help-card h3 {
+        margin: 0 0 10px;
+        color: #071722;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 21px;
+    }
+
+    .help-card p {
+        margin: 0;
+        color: #687681;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .help-card span {
+        display: inline-block;
+        margin-top: 18px;
+        color: #a98235;
+        font-size: 13px;
+        font-weight: bold;
+
+        transition: transform 0.25s ease;
+    }
+
+    .help-card:hover span {
+        transform: translateX(5px);
+    }
+
+    /* =========================
+       FAQ HELP
+    ========================= */
+
+    .help-faq {
+        max-width: 900px;
+        margin: 60px auto 0;
+    }
+
+    .help-faq h2 {
+        margin-bottom: 25px;
+        text-align: center;
+        color: #071722;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 40px;
+    }
+
+    .help-question {
+        width: 100%;
+        padding: 19px 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        border: none;
+        background: white;
+
+        color: #071722;
+        text-align: left;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .help-faq-item {
+        overflow: hidden;
+        margin-bottom: 12px;
+
+        background: white;
+        border: 1px solid #dedbd3;
+        border-radius: 13px;
+
+        transition: 0.25s ease;
+    }
+
+    .help-faq-item:hover {
+        border-color: #d7b568;
+    }
+
+    .help-plus {
+        width: 32px;
+        height: 32px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        background: #f1e8d5;
+        color: #8b682c;
+
+        font-size: 20px;
+
+        transition: 0.25s ease;
+    }
+
+    .help-question.open .help-plus {
+        transform: rotate(45deg);
+        background: #d7b568;
+        color: #071722;
+    }
+
+    .help-answer {
+        max-height: 0;
+        overflow: hidden;
+        background: #faf9f5;
+        transition: max-height 0.3s ease;
+    }
+
+    .help-answer p {
+        margin: 0;
+        padding: 0 22px 20px;
+
+        color: #687681;
+        line-height: 1.7;
+        font-size: 14px;
+    }
+
+    /* =========================
+       NOTICE
+    ========================= */
+
+    .help-notice {
+        max-width: 900px;
+        margin: 55px auto 0;
+
+        padding: 28px;
+
+        background: linear-gradient(135deg, #071722, #19384b);
+        color: white;
+
+        border-radius: 17px;
+        border-left: 5px solid #d7b568;
+    }
+
+    .help-notice h3 {
+        margin: 0 0 8px;
+        color: #d7b568;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .help-notice p {
+        margin: 0;
+        color: #c5d0d6;
+        line-height: 1.7;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+        .help-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .help-header h1 {
+            font-size: 42px;
+        }
+
+        .help-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .help-heading h2 {
+            font-size: 30px;
+        }
+    }
+</style>
+
+
+</head>
+
+<body class="help-page">
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            ⚖ CourtGuide
+        </a>
+
+        <nav>
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="guide.html">
+                Guide
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="help.html" class="active">
+                Help
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+        <a href="guide.html" class="nav-button">
+            Start Guide
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- HEADER -->
+
+<section class="help-header">
+
+    <div class="container">
+
+        <span class="eyebrow">
+            NEED SOME HELP?
+        </span>
+
+        <h1>
+            How can we <span>help?</span>
+        </h1>
+
+        <p>
+            Find quick answers, learn how CourtGuide works,
+            and discover where to go when you need more
+            information.
+        </p>
+
+    </div>
+
+</section>
+
+ <!-- FAQ -->
+
+        <div class="help-faq">
+
+            <h2>
+                Common Help Questions
+            </h2>
+
+
+            <div class="help-faq-item">
+
+                <button
+                    class="help-question"
+                    onclick="toggleHelpFAQ(this)"
+                    type="button">
+
+                    <span>
+                        Where should I start?
+                    </span>
+
+                    <span class="help-plus">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="help-answer">
+
+                    <p>
+                        If you are unsure where to begin,
+                        start with the Who Is Who section
+                        of the Guide. It can help you identify
+                        the role that best describes your
+                        situation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-faq-item">
+
+                <button
+                    class="help-question"
+                    onclick="toggleHelpFAQ(this)"
+                    type="button">
+
+                    <span>
+                        Is CourtGuide legal advice?
+                    </span>
+
+                    <span class="help-plus">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="help-answer">
+
+                    <p>
+                        No. CourtGuide provides general
+                        educational information. It does not
+                        replace advice from a qualified lawyer
+                        or official court resource.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-faq-item">
+
+                <button
+                    class="help-question"
+                    onclick="toggleHelpFAQ(this)"
+                    type="button">
+
+                    <span>
+                        Why might court procedures be different?
+                    </span>
+
+                    <span class="help-plus">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="help-answer">
+
+                    <p>
+                        Court procedures can vary depending
+                        on the location, type of case, and
+                        court involved. Always check the
+                        official information that applies
+                        to your situation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-faq-item">
+
+                <button
+                    class="help-question"
+                    onclick="toggleHelpFAQ(this)"
+                    type="button">
+
+                    <span>
+                        What if I need legal advice?
+                    </span>
+
+                    <span class="help-plus">
+                        +
+                    </span>
+
+                </button>
+
+                <div class="help-answer">
+
+                    <p>
+                        Consider contacting a qualified legal
+                        professional or an appropriate official
+                        court resource for information specific
+                        to your situation.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+<!-- CONTENT -->
+
+<main class="help-content">
+
+    <div class="container">
+
+        <div class="help-heading">
+
+            <span class="eyebrow">
+                QUICK HELP
+            </span>
+
+            <h2>
+                Find what you're looking for
+            </h2>
+
+            <p>
+                Choose a topic below to quickly navigate
+                to the information you need.
+            </p>
+
+        </div>
+
+
+        <!-- HELP CARDS -->
+
+        <div class="help-grid">
+
+            <a href="guide.html?section=roles" class="help-card">
+
+                <div class="help-icon">
+                    👥
+                </div>
+
+                <h3>
+                    Who Is Who?
+                </h3>
+
+                <p>
+                    Learn about defendants, plaintiffs,
+                    witnesses, lawyers, judges, and other
+                    people involved in court.
+                </p>
+
+                <span>
+                    Open Guide →
+                </span>
+
+            </a>
+
+
+            <a href="guide.html?section=process" class="help-card">
+
+                <div class="help-icon">
+                    ⚖️
+                </div>
+
+                <h3>
+                    Court Process
+                </h3>
+
+                <p>
+                    Get a simple overview of common stages
+                    that may happen during a court case.
+                </p>
+
+                <span>
+                    View Process →
+                </span>
+
+            </a>
+
+
+            <a href="guide.html?section=defendant" class="help-card">
+
+                <div class="help-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    I'm a Defendant
+                </h3>
+
+                <p>
+                    Find general information about documents,
+                    deadlines, evidence, and preparing for court.
+                </p>
+
+                <span>
+                    Defendant Guide →
+                </span>
+
+            </a>
+
+
+            <a href="guide.html?section=plaintiff" class="help-card">
+
+                <div class="help-icon">
+                    📄
+                </div>
+
+                <h3>
+                    I'm a Plaintiff
+                </h3>
+
+                <p>
+                    Learn about preparing a claim, organizing
+                    evidence, forms, and important dates.
+                </p>
+
+                <span>
+                    Plaintiff Guide →
+                </span>
+
+            </a>
+
+
+            <a href="guide.html?section=witness" class="help-card">
+
+                <div class="help-icon">
+                    👁️
+                </div>
+
+                <h3>
+                    I'm a Witness
+                </h3>
+
+                <p>
+                    Learn about giving information, answering
+                    questions, and preparing to appear in court.
+                </p>
+
+                <span>
+                    Witness Guide →
+                </span>
+
+            </a>
+
+
+            <a href="guide.html?section=faq" class="help-card">
+
+                <div class="help-icon">
+                    ❓
+                </div>
+
+                <h3>
+                    Frequently Asked Questions
+                </h3>
+
+                <p>
+                    Find quick answers to common questions
+                    about going to court.
+                </p>
+
+                <span>
+                    View FAQs →
+                </span>
+
+            </a>
+
+        </div>
+
+<!-- NOTICE -->
+
+        <div class="help-notice">
+
+            <h3>
+                Important
+            </h3>
+
+            <p>
+                CourtGuide is an educational resource only.
+                Laws, procedures, deadlines, and requirements
+                can vary by jurisdiction and case type.
+                Always verify important information with an
+                official court source or qualified legal
+                professional.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+
+ <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <strong>
+                        ⚖ CourtGuide
+                    </strong>
+
+                    <p>
+                        Making court information easier to understand.
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="guide.html">
+                        Guide
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                     <a href="Help.html">
+                    Help
+                    </a>
+                    
+                    <a href="contact.html">
+                    Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 CourtGuide. For educational purposes only.
+            </div>
+
+        </div>
+
+    </footer>
+
+<!-- FAQ JAVASCRIPT -->
+
+<script>
+
+    function toggleHelpFAQ(button) {
+
+        const answer = button.nextElementSibling;
+        const isOpen = button.classList.contains("open");
+
+        document
+            .querySelectorAll(".help-question")
+            .forEach(function(item) {
+                item.classList.remove("open");
+            });
+
+        document
+            .querySelectorAll(".help-answer")
+            .forEach(function(item) {
+                item.style.maxHeight = null;
+            });
+
+        if (!isOpen) {
+
+            button.classList.add("open");
+
+            answer.style.maxHeight =
+                answer.scrollHeight + "px";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
